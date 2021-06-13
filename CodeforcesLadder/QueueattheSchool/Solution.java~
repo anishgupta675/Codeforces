@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+import java.math.*;
+import java.text.*;
+import java.security.*;
+import java.util.regex.*;
+import java.util.concurrent.*;
+class Solution {
+	static void swap(char a, char b) {
+		char temp = a;
+		a = b;
+		b = temp;
+	}
+	static String getqueue(String queue, int n, int t) {
+		for(int i = 0; i < t; i++) {
+			for(int j = 0; j < n - 1; j++)
+				if(queue.charAt(j).equals('B') && queue.charAt(j + 1).equals('G')) swap(queue.charAt(j), queue.charAt(j + 1));
+		}
+		return queue;
+	}
+	public static void main(String[] args) throws IOException {
+		Solution sol = new Solution();
+		DataInputStream in = new DataInputStream(System.in);
+		int n = Integer.parseInt(in.readLine());
+		int t = Integer.parseInt(in.readLine());
+		String queue = in.readLine();
+		queue = sol.getqueue(queue, n, t);
+		System.out.println(queue);
+	}
+}
