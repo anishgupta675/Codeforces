@@ -5,22 +5,12 @@ import java.math.*;
 import java.text.*;
 import java.security.*;
 public class Solution {
-	static int getmin(List<Integer> arr) {
-		int min_val = Integer.MAX_VALUE;
-		for(int i = 0; i < arr.size(); i++)
-			if(arr.get(i) < min_val) min_val = arr.get(i);
-		return min_val;
-	}
-	static int getmax(List<Integer> arr) {
-	     /*	for(int mask = 0; mask < (1 << arr.size()); mask++) {
-			for(int i = 0; i < arr.size(); i++) {
-				if(mask & (1 << i)) {
-				}
-			}
-		} */
-		int count = 0, min_val = getmin(arr);
-		for(int i = 0; i < arr.size(); i++)
-			if(arr.get(i) > min_val) count++;
+	static int getmax(int[] arr) {
+		int count = 0, min_val = arr[0];
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] != min_val) count++;
+			if(arr[i] < min_val) min_val = arr[i];
+		}
 		return count;
 	}
 	public static void main(String[] args) throws IOException {
@@ -29,11 +19,9 @@ public class Solution {
 		int t = Integer.parseInt(in.readLine());
 		for(int i = 0; i < t; i++) {
 			int n = Integer.parseInt(in.readLine());
-			List<Integer> arr = new ArrayList<Integer>(n);
-			while(n-- != 0) {
-				int data = Integer.parseInt(in.readLine());
-				arr.add(data);
-			}
+			int[] arr = new int[n];
+			for(int j = 0; j < n; j++)
+				arr[j] = Integer.parseInt(in.readLine());
 			System.out.println(sol.getmax(arr));
 		}
 	}

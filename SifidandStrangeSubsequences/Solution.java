@@ -6,7 +6,7 @@ import java.text.*;
 import java.security.*;
 import java.util.regex.*;
 import java.util.concurrent.*;
-class Solution {
+public class Solution {
 	static void merge(int[] a, int low, int mid, int high) {
 		int n1 = mid - low + 1;
 		int n2 = high - mid;
@@ -55,7 +55,7 @@ class Solution {
 		for(int i = 1; i < a.length; i++)
 			if(a[i] <= 0) flag&= (a[i] - a[i - 1] >= min_val) ? 1 : 0;
 		if(flag != 0) return ans + 1;
-		else return ans;
+		return ans;
 	}
 	public static void main(String[] args) throws IOException {
 		Solution sol = new Solution();
