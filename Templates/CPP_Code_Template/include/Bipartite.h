@@ -1,0 +1,2 @@
+void bfs();
+void solve();
