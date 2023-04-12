@@ -1,17 +1,5 @@
-/*
-Problem Details:
-    Contest Event Name: ?
-    Contest Event Link: ?
-    Problem Statement Label Number: ?
-    Problem Statement Code Number: ?
-    Problem Statement Link Number: ?
-*/
-
-/*
-Short explanation: ?
-*/
-
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
 
 using namespace std;
 
@@ -22,8 +10,21 @@ const int MAX_N = 1e5 + 1;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 
+ll maximizeMoney(vector<ll> &a) {
+    ll res = 1;
+    for(int i = 0; i < a.size(); i++)
+        res*= a[i];
+    return (res + (a.size() - 1)) * 2022;
+}
+
 void solve() {
-    
+    ll n;
+    cin >> n;
+    vector<ll> a(n);
+    for(int i = 0; i < n; i++)
+        cin >> a[i];
+    cout << maximizeMoney(a) << endl;
+    a.clear();
 }
 
 int main() {

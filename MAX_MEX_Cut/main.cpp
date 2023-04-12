@@ -1,3 +1,16 @@
+/*
+Problem Details:
+    Contest Event Name: Codeforces Global Round 16
+    Contest Event Link: https://codeforces.com/contest/1566
+    Problem Statement Label Number: C
+    Problem Statement Code Number: 1566C
+    Problem Statement Link Number: https://codeforces.com/problemset/problem/1566/C
+*/
+
+/*
+Short explanation: ?
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
