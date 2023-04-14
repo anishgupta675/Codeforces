@@ -1,10 +1,10 @@
 /*
 Problem Details:
-    Contest Event Name: ?
-    Contest Event Link: ?
-    Problem Statement Label Number: ?
-    Problem Statement Code Number: ?
-    Problem Statement Link Number: ?
+    Contest Event Name: Codeforces Round 861 (Div. 2)
+    Contest Event Link: https://codeforces.com/contest/1808
+    Problem Statement Label Number: C
+    Problem Statement Code Number: 1808C
+    Problem Statement Link Number: https://codeforces.com/contest/1808/problem/C
 */
 
 /*
