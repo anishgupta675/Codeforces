@@ -1,14 +1,21 @@
 /*
 Problem Details:
-    Contest Event Name: ?
-    Contest Event Link: ?
-    Problem Statement Label Number: ?
-    Problem Statement Code Number: ?
-    Problem Statement Link Number: ?
+    Contest Event Name: CSES Problem Set Sorting and Searching
+    Contest Event Link: https://codeforces.com/gym/102961
+    Problem Statement Label Number: B
+    Problem Statement Code Number: 102961B
+    Problem Statement Link Number: https://codeforces.com/gym/102961/problem/B
 */
 
 /*
-Short explanation: ?
+Short explanation: Sort both applicants and appartments array each in non-decreasing order. This
+infers that, starting from the applicant with the smallest appartment size and the appartment with
+the smallest size at the beginning of the first and second arrays respectively, if the size of the
+current appartment is less than the current applicant's lower bound appartment size requirement
+threshold, then we can skip through that appartment entirely (because nobody wants it anyways). If
+the size of the current appartment is more than the current applicant's upper bound appartment size
+requirement threshold, then we can skip through that applicant entirely (because he will never
+receive an appartment of his size requirement anyways).
 */
 
 #include<bits/stdc++.h>
