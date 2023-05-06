@@ -1,10 +1,10 @@
 /*
 Problem Details:
-    Contest Event Name: ?
-    Contest Event Link: ?
-    Problem Statement Label Number: ?
-    Problem Statement Code Number: ?
-    Problem Statement Link Number: ?
+    Contest Event Name: CSES Problem Set Sorting and Searching
+    Contest Event Link: https://codeforces.com/gym/102961
+    Problem Statement Label Number: C
+    Problem Statement Code Number: 102961C
+    Problem Statement Link Number: https://codeforces.com/gym/102961/problem/C
 */
 
 /*
