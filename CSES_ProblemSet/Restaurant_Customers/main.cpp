@@ -8,7 +8,8 @@ Problem Details:
 */
 
 /*
-Short explanation: ?
+Short explanation: Use a map to keep track of the number of guests at each unit of time T = t,
+where t = min(customers)...max(customers)
 */
 
 #include<bits/stdc++.h>
