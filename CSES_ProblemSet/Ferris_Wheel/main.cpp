@@ -8,7 +8,10 @@ Problem Details:
 */
 
 /*
-Short explanation: ?
+Short explanation: Sort the array, then run two pointers, one pointing at the lightest unselected
+kidstarting from index 0 going forward, the other starting from index p.size() - 1 going backward.
+If the collective weights of children at current indices i and j exceeeds the maximum threshold,
+allocate an extra gondola or find a lighter kid by prematurely decrementing the j pointer.
 */
 
 #include<bits/stdc++.h>
@@ -24,12 +27,16 @@ const ll INF = 1e9;
 
 int getGondolas(vector<int> &p, int n, int x) {
     int i = 0, j = p.size() - 1, cnt = 0;
+    sort(p.begin(), p.end());
     while(i <= j) {
         if(p[i] + p[j] <= x) {
             i++;
             j--;
         }
-        j--;
+        else {
+            j--;
+            // cnt++;
+        }
         cnt++;
     }
     return cnt;
