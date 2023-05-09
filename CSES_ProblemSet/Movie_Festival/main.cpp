@@ -34,7 +34,7 @@ int getMovies(vector<pair<int, int>> &movies) {
     if(movies.size() == 2) return checkOverlap(movies[0], movies[1]) + 1;
     int movie0 = 1, movie1 = checkOverlap(movies[0], movies[1]) + 1;
     for(int i = 1; i < movies.size(); i++) {
-        int movie2 = max(checkOverlap(movies[i], movies[i - 1]), movie1);
+        int movie2 = max((int)checkOverlap(movies[i], movies[i - 1]), movie1);
         movie0 = movie1;
         movie1 = movie2;
     }
