@@ -8,7 +8,7 @@ Problem Details:
 */
 
 /*
-Short explanation: ?
+Short explanation: Store an unordered map to keep track of the frequency of unique elements. If the frequency of a distinct element is greater than or equal to k, then there is only one succinct order of arranging the colors for that particular element, the rest of which will be left as 0 (uncolored), else just store another extra('s) array/vector to store the elements until we can seek to form a full cluster of elements of size k.
 */
 
 #include<bits/stdc++.h>
