@@ -22,81 +22,21 @@ const int MAX_N = 1e5 + 1;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 
-int ans = 0;
-vector<pair<int, int>> v;
-set<pair<int, int>> ss;
-unordered_map<int, stack<int>> col;
-
-bool check(int k, int mid) {
-    set<pair<int, int>> sss;
-    unordered_map<int, int> cnt;
-    for(auto i : ss) sss.insert(make_pair(-1 * i.second, i.first));
-    for(int i = 0; i < k; i++) {
-        set<pair<int, int>> del;
-        if(sss.size() < mid) return false;
-        for(int j = 0; j < mid; j++) {
-            pair<int, int> p = *sss.begin();
-            sss.erase(sss.begin());
-            if(p.first == -1) continue;
-            else del.insert(make_pair(-1 * (-1 * p.first - 1), p.second));
-        }
-        for(auto j : del) sss.insert(j);
+vector<int> getColor(vector<int> &seq, int n, int k) {
+    vector<int> ans(n);
+    unordered_map<int, int> freq;
+    unordered_map<int, vector<int>> occ;
+    for(int i = 0; i < n; i++) {
+        freq[seq[i]]++;
+        occ[seq[i]].push_back(i);
     }
-    return true;
-}
-
-void binarySearch(int k, int low, int high) {
-    if(low > high) return;
-    int mid = (low + high) >> 1;
-    if(check(k, mid)) {
-        ans = mid;
-        binarySearch(k, mid + 1, high);
-    } else binarySearch(k, low, mid - 1);
-}
-
-void color(int k, int mid) {
-    set<pair<int, int>> sss;
-    unordered_map<int, int> cnt;
-    for(auto i : ss) sss.insert(make_pair(-1 * i.second, i.first));
-    for(int i = 0; i < k; i++) {
-        set<pair<int, int>> del;
-        for(int j = 0; j < mid; j++) {
-            pair<int, int> p = *sss.begin();
-            sss.erase(sss.begin());
-            col[p.second].push(i + 1);
-            if(p.first == -1) continue;
-            else del.insert(make_pair(-1 * (-1 * p.first - 1), p.second));
-        }
-        for(auto j : del) sss.insert(j);
+    vector<int> toColor;
+    for(int i = 1; i <= n; i++) {
+        if(freq[i] >= k) for(int j = 0; j < k; j++) ans[occ[i][j]] = j + 1;
+        else for(int j = 0; j < freq[i]; j++) toColor.push_back(occ[i][j]);
     }
-}
-
-vector<int> getColor(vector<int> &seq, int k) {
-    int c1 = 0, c2 = 0;
-    vector<int> res;
-    unordered_map<int, int> m;
-    for(int i = 0; i < seq.size(); i++) {
-        if(m[seq[i]] == k - 1) {
-            c1++;
-            m[seq[i]]++;
-        } else m[seq[i]]++;
-    }
-    for(int i = 0; i < seq.size(); i++) if(m[seq[i]] < k) ss.insert(make_pair(seq[i], m[seq[i]]));
-    sort(v.begin(), v.end());
-    binarySearch(k, 0, seq.size() - c1);
-    color(k, ans);
-    int ind = 1;
-    unordered_map<int, int> col2;
-    for(int i = 0; i < seq.size(); i++) {
-        if(m[seq[i]] >= k && col2[seq[i]] + 1 <= k) {
-            res.push_back(col2[seq[i]] + 1);
-            col2[seq[i]]++;
-        } else if(!col[seq[i]].empty()) {
-            res.push_back(col[seq[i]].top());
-            col[seq[i]].pop();
-        } else res.push_back(0);
-    }
-    return res;
+    for(int i = 0; i <= toColor.size() - k; i+= k) for(int j = 0; j < k; j++) ans[toColor[i + j]] = j + 1;
+    return ans;
 }
 
 void printList(vector<int> seq) {
@@ -109,7 +49,7 @@ void solve() {
     cin >> n >> k;
     vector<int> seq(n);
     for(int i = 0; i < n; i++) cin >> seq[i];
-    printList(getColor(seq, k));
+    printList(getColor(seq, n, k));
 }
 
 int main() {
