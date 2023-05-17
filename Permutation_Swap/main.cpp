@@ -43,14 +43,14 @@ void binarySearch(vector<int> &p, int low, int high) {
 }
 */
 
-int getGCD(int a, int b) {
+ll getGCD(ll a, ll b) {
     if(!a) return b;
     return getGCD(b % a, a);
 }
 
-int maximizeK(vector<int> &p) {
+ll maximizeK(vector<ll> &p) {
     // binarySearch(p, 0, p.size() - 1);
-    int max_k = 0;
+    ll max_k = 0;
     for(int i = 0; i < p.size(); i++) max_k = getGCD(max_k, abs(p[i] - (i + 1)));
     // return ans;
     return max_k;
@@ -59,7 +59,7 @@ int maximizeK(vector<int> &p) {
 void solve() {
     int n;
     cin >> n;
-    vector<int> p(n);
+    vector<ll> p(n);
     for(int i = 0; i < n; i++) cin >> p[i];
     cout << maximizeK(p) << endl;
 }
