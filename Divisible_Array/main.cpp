@@ -23,16 +23,17 @@ const int MAX_N = 1e5 + 1;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 
-vector<int> getPerfect(int n) {
-    vector<int> res(n);
+vector<ll> getPerfect(int n) {
+    ll count = 0;
+    vector<ll> res(n);
     if(n % 2) {
-        int count = 1;
+        count = 1;
         for(int i = 0; i < n; i++) {
             res[i] = count;
             count++;
         }
     } else {
-        int count = 2;
+        count = 2;
         for(int i = 0; i < n; i++) {
             res[i] = count;
             count+= 2;
@@ -41,8 +42,8 @@ vector<int> getPerfect(int n) {
     return res;
 }
 
-void printList(vector<int> a) {
-    for(int i : a) cout << i << " ";
+void printList(vector<ll> a) {
+    for(ll i : a) cout << i << " ";
     cout << endl;
 }
 
