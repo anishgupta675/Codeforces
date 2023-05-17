@@ -12,6 +12,9 @@ Short explanation: Use binary search to evaluate optimal number of swaps require
     lower_bound = 0 (already sorted),
     upper_bound = n - 1 (can only swap elements on either end of the given permutation)
 **(Not sure, could be subject to changes in the future)**
+
+Updated explanation: Find the gcd of p(1) - 1, p(2) - 2, p(3) - 3,..., p(N) - N => gcd(p(i=1..N) - i)
+Proof: https://codeforces.com/blog/entry/116109
 */
 
 #include<bits/stdc++.h>
@@ -25,12 +28,10 @@ const int MAX_N = 1e5 + 1;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 
+/*
 int ans = 0;
 
-bool checkSwaps(vector<int> &p, int mid) {
-    // TODO
-    return false;
-}
+bool checkSwaps(vector<int> &p, int mid) { return false; }
 
 void binarySearch(vector<int> &p, int low, int high) {
     if(low > high) return;
@@ -40,10 +41,19 @@ void binarySearch(vector<int> &p, int low, int high) {
         binarySearch(p, mid + 1, high);
     } else binarySearch(p, low, mid - 1);
 }
+*/
+
+int getGCD(int a, int b) {
+    if(!a) return b;
+    return getGCD(b % a, a);
+}
 
 int maximizeK(vector<int> &p) {
-    binarySearch(p, 0, p.size() - 1);
-    return ans;
+    // binarySearch(p, 0, p.size() - 1);
+    int max_k = 0;
+    for(int i = 0; i < p.size(); i++) max_k = getGCD(max_k, abs(p[i] - (i + 1)));
+    // return ans;
+    return max_k;
 }
 
 void solve() {
