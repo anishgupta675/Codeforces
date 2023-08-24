@@ -1,7 +1,7 @@
 /*
 Problem Details:
     Contest Event Name: Codeforces Round 893 (Div. 2)
-    Contest Event Link: https://codeforces.com/contest/1858/problem/A
+    Contest Event Link: https://codeforces.com/contest/1858
     Problem Statement Label Number: A
     Problem Statement Code Number: 1858A
     Problem Statement Link Number: https://codeforces.com/contest/1858/problem/A
