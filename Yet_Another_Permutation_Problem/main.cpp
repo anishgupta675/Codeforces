@@ -23,7 +23,9 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 
 vector<int> getPermutation(int n) {
+    int cur = 0;
     vector<int> res(n);
+    for(int i = 1; i <= n; i+= 2) for(int j = i; j <= n; j*= 2) res[cur++] = j;
     return res;
 }
 
