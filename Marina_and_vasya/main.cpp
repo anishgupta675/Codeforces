@@ -27,7 +27,8 @@ string getString(string &s1, string &s2, int n, int t) {
     for(int i = 0; i < n; i++) ham_dist+= (s1[i] != s2[i]);
     if(ham_dist != t) return "-1";
     string res;
-    for(int i = 0; i < n; i++) res+= ((s2[i] + 1) % 26) + 97;
+    for(int i = 0; i < t; i++) res+= ((s2[i] + 1) % 26) + 97;
+    for(int i = t; i < n; i++) res+= s2[i];
     return res;
 }
 
