@@ -1,10 +1,10 @@
 /*
 Problem Details:
-    Contest Event Name: ?
-    Contest Event Link: ?
-    Problem Statement Label Number: ?
-    Problem Statement Code Number: ?
-    Problem Statement Link Number: ?
+    Contest Event Name: Codeforces Round 324 (Div. 2)
+    Contest Event Link: https://codeforces.com/contest/584
+    Problem Statement Label Number: D
+    Problem Statement Code Number: 584D
+    Problem Statement Link Number: https://codeforces.com/problemset/problem/584/D
 */
 
 /*
@@ -29,7 +29,8 @@ int getSet(int n) {
 }
 
 void printSet(int k, int n) {
-    for(int i = 0; i < n; i++) cout << k + i << endl;
+    cout << k << endl;
+    for(int i = 0; i < n; i++) cout << ++k << endl;
 }
 
 void solve() {
